@@ -2,8 +2,9 @@ import turtle
 import json
 import re
 #?????
-open ("factfulnessQuestions.py", "a")
+open ("StatsQuestions.txt", "a")
 import random
+
 
 #regex
 string = '1234567890'
@@ -13,9 +14,6 @@ print(good_numbers)
 
 #Quiz to test basic world knowledge
 #Credited to Hans Rosling, Ola Rosling, and Anna Rosling Ronnlund
-
-answer1 = input("What is the percent of the world's population that has access to electricity? \n a. 10% \n b. 40% \n c. 80% \n \n Answer: ")
-
 
 #Collect user's infomation
 user_name = input("What is your name? (First + Last)")

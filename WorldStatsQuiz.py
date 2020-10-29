@@ -18,15 +18,17 @@ print(good_numbers)
 #Collect user's infomation
 user_name = input("What is your name? (First + Last)")
 print("Hello ", user_name, ".")
+print("")
+
 
 def get_questions():
 
-    questions = []
-    questions.append([answer1, "c"])
-    questions.append([answer2, "c"])
-    questions.append([answer3, "c"])
+    StatsQuestions = []
+    StatsQuestions.append([answer1, "c"])
+    StatsQuestions.append([answer2, "c"])
+    StatsQuestions.append([answer3, "c"])
 
-    return questions
+    return StatsQuestions
 
 #Questions  Ask all questions before showing answers.
 def ask_questions():

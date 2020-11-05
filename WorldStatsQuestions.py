@@ -1,3 +1,15 @@
+import random
+import re
+import json
+import datetime
+
+from datetime import date, time, datetime
+today = date.today()
+#future = datetime.date(birthday)
+#diff = future - today
+#print(diff.days)
+
+
 #Questions for our test
 
 #save the answer into a text file
@@ -12,11 +24,21 @@ def show():
             
 if __name__ =='__main__':
     quiz_answer(input("What is your answer? "))
+
+#Collect user's infomation
+user_name = input("What is your name? (First + Last)")
+print("Hello ", user_name, ". \n")
+# (NEED TO FIX )user_birthday = int(input("What is the month and day of your Birthday? (mm/dd) \n"))
  
 #FEATURE: Implement a "master loop" console ...
 #Create Main Menu to chose to play or to exit
 def main_menu():
     print("Welcome to the World Stats Question test. \n")
+    print("Today is ", today)
+    #future = datetime.date(user_birthday)
+    #diff = future - today
+    #print(diff.days)
+    #calculate days till your birthday ???
     print("Please select an option below.")
     print("1. Answer World Statistics Questions")
     #option to build a game feature
@@ -49,8 +71,8 @@ def world_stat_quiz():
     '''
     #random    Ask question
     answer1 = input("\n What is the percent of the world's population that has access to electricity? \n a. 20% \n b. 50% \n c. 80% \n \n Answer: ").lower() #c
-    #for loop to check for valid answer
-    '''if answer1 != "a" or "b" or "c":
+    '''#for loop to check for valid answer
+    if answer1 != "a" or "b" or "c":
         answer1 = input("That is not a valid answer, please re-enter your answer a, b, or c: ")
     else:
         print("Your answer has been tallied.")

@@ -2,7 +2,8 @@ import turtle
 import json
 import re
 #?????
-open ("StatsQuestions.txt", "a")
+questions = open ('StatsQuestions.txt', 'r')
+questions2 = open ('WorldStatsQuestions.py', 'a')
 import random
 
 
@@ -15,12 +16,35 @@ print(good_numbers)
 #Quiz to test basic world knowledge
 #Credited to Hans Rosling, Ola Rosling, and Anna Rosling Ronnlund
 
+#Create Main Menu to chose to play or to exit
+def main_menu():
+    print("Welcome to the Factfullness Question test.")
+    print("Please select an option below.")
+    print("1. Answer the Questions")
+    #option to build a game feature
+    # print("2. Play Pong Game")
+    print("Enter 0 to Exit the Program")
+    choice = input("Enter 1 or 0: ")
+    if choice == "1":
+        open('WorldStatsQuestions.py', 'a')
+        
+
+        
+    elif choice == "0":
+        print("Thanks for visiting")
+        quit()
+
+
 #Collect user's infomation
 user_name = input("What is your name? (First + Last)")
 print("Hello ", user_name, ".")
 print("")
 
+main_menu()
 
+
+'''
+"""
 def get_questions():
 
     StatsQuestions = []
@@ -29,6 +53,7 @@ def get_questions():
     StatsQuestions.append([answer3, "c"])
 
     return StatsQuestions
+"""
 
 #Questions  Ask all questions before showing answers.
 def ask_questions():
@@ -45,17 +70,12 @@ def ask_questions():
         print("Question: " +q[0])
 
     #user enters guess
-    guess = input("Enter a, b, or c: ")
+    guess = input("Enter a, b, or c: ").lower():
 
     if guess == q[1]:
-        print("Your answer has been stored")
+        print("Your answer has been saved... ")
         score += 1
     
-
-
-
-
-
 
 
 
@@ -66,8 +86,8 @@ if test_answer !="a" or test_answer !="b" or test_answer !="c":
 else:
     print("i dont know what to do next")
 
-###Create a loop to check answers: Do not display answers until all questions are answered.
-if answer1 == "c" or answer1 == "C" or answer1 == "80%":
+# Create a loop to check answers: Do not display answers until all questions are answered.
+if answer1 == "c"  or answer1 == "80%":
     score += 1
     print("Correct!")
     print("Score: ", score)
@@ -92,18 +112,5 @@ elif score_percent >=33:
     print("You scored a ", str(score_percent), ".  That is actually better than most people.")
 else: 
     print("You scored a ", str(score_percent), ".  A wild chimpanzee making random guesses would likely score higher than you did.")
-
-
-#Create Main Menu to chose to play or to exit
-def main_menu():
-    print("Welcome to the Factfuilness Question test.")
-    print("Please select an option below.")
-    print("1. Answer the Questions")
-    print("Enter 0 to exit")
-    choice = input("Enter 1 or 0: ")
-    if choice == "1":
-        ask_questions()
-    elif choice == "0":
-        print("Thanks for visiting")
-        quit()
+'''
 

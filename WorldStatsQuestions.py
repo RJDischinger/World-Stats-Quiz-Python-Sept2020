@@ -1,14 +1,30 @@
 import random
 import re
 import json
-import datetime
+import datetime 
 
 from datetime import date, time, datetime
+date_format = "%m/%d/"
+now = datetime.now()
+christmas = datetime(now.year, 12, 25)
+delta = christmas - now
+final = delta.days
+
 today = date.today()
+
+#def birthday_greeting():
 #future = datetime.date(birthday)
+#user_birthday = datetime(now.year, mm, dd)
 #diff = future - today
 #print(diff.days)
 
+def christmas_greeting():
+    if final > 0:
+        print(final, "days until Christmas!")
+    elif final == 0:
+        print ("Merry Christmas!")
+    elif final < 0:
+        print ("I hope you had a great Christmas.  Have a Happy New Year.")
 
 #Questions for our test
 
@@ -23,18 +39,29 @@ def show():
             print(line)
             
 if __name__ =='__main__':
-    quiz_answer(input("What is your answer? "))
+    quiz_answer(input("How are you today? "))
 
-#Collect user's infomation
-user_name = input("What is your name? (First + Last)")
-print("Hello ", user_name, ". \n")
-# (NEED TO FIX )user_birthday = int(input("What is the month and day of your Birthday? (mm/dd) \n"))
- 
+#Collect user's infomation  
+def user_info():
+    user_name = input("What is your name? (First + Last)")
+    print("Hello ", user_name, ". \n")
+    christmas_greeting()
+    mm = input("What is the month of your Birthday? (mm) ").lower()
+    dd = input("What is the day of your Birthday? (dd) ").lower()
+
 #FEATURE: Implement a "master loop" console ...
 #Create Main Menu to chose to play or to exit
 def main_menu():
-    print("Welcome to the World Stats Question test. \n")
-    print("Today is ", today)
+    print("Welcome to the Main Menu. \n")
+    print("Today is ",today) 
+    print(" ")
+    user_info_request = input("Would you like to tell us about yourself? Y/N ").lower()
+    if user_info_request == "y":
+        user_info()
+    else:
+        print("Enjoy your visit. \n")
+    #call function for date options
+    #birthday_greeting()
     #future = datetime.date(user_birthday)
     #diff = future - today
     #print(diff.days)
@@ -55,14 +82,14 @@ def main_menu():
         print("*** Sorry, that feature is not complete yet. \n")
         main_menu()           
     elif choice == "0":
-        print("\n Thanks for visiting")
+        print("\n Thanks for visiting \n")
         quit()
 
         
 def world_stat_quiz():
     score = 0  
     count = 5 #this is the number of questions in the quiz.  
-    print("According to the United Nations: ... ") 
+    print("\nAccording to the United Nations: ... ") 
     '''
     #FEATURE Create a (dictionary or) list, populate it with several values, retrieve at least one value, and use it in the program.
     answer_list = ['answer1', 'answer2', 'answer3', 'answer4', 'answer5']
@@ -73,9 +100,9 @@ def world_stat_quiz():
     answer1 = input("\n What is the percent of the world's population that has access to electricity? \n a. 20% \n b. 50% \n c. 80% \n \n Answer: ").lower() #c
     '''#for loop to check for valid answer
     if answer1 != "a" or "b" or "c":
-        answer1 = input("That is not a valid answer, please re-enter your answer a, b, or c: ")
-    else:
         print("Your answer has been tallied.")
+    else:
+        answer1 = input("That is not a valid answer, please re-enter your answer a, b, or c: ").lower()
     '''
     if answer1 == "c":
         score += 1
@@ -88,7 +115,7 @@ def world_stat_quiz():
     if answer3 == "b":
         score += 1
 
-    answer4 = input("\n In the last twenty (20) yeatrs, the proportion of the world's population that lives in extreme poverty has...? \n a. almost doubled \n b. remained approximately the same \n c. almost dropped by half. \n \n Answer: ").lower() #c
+    answer4 = input("\n In the last twenty (20) years, the proportion of the world's population that lives in extreme poverty has...? \n a. almost doubled \n b. remained approximately the same \n c. almost dropped by half. \n \n Answer: ").lower() #c
     if answer4 == "c":
         score += 1
 
@@ -116,10 +143,17 @@ def world_stat_quiz():
     else:
         results = input("Would you like to see the correct answers? Y/N ").upper()
         if results == "Y":
-            #Print questions with answers
-            print("\n blah blah blah \n")
+            #Print the answers to the questions
+            print("_______________________________________________________________")
+            print("80% percent of the world's population has access to electricity.")
+            print("In all low income countries, 60% of girls finish primary school.")
+            print("The majority of the world's population lives in Middle Income Countries.")
+            print("In the last twenty (20) years, the proportion of the world's population that lives in extreme poverty has almost dropped by half.")
+            print("The life expectancy of the world population today is 70 years.")
+            print("_______________________________________________________________")
             main_menu()
         else:
+            print("")
             main_menu()
 
 main_menu()

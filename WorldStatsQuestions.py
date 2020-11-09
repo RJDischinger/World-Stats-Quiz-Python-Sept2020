@@ -22,6 +22,7 @@ def christmas_greeting():
     elif final < 0:
         print ("I hope you had a great Christmas.  Have a Happy New Year.")
 
+"""
 #def birthday_greeting():
     #future = datetime.date(birthday)
     #user_birthday = datetime(now.year, mm, dd)
@@ -32,6 +33,20 @@ def christmas_greeting():
     #diff = future - today
     #print(diff.days)
     #calculate days till your birthday ???
+    
+import os
+import datetime
+
+def create_daily_dir(string, path='financial'):
+    # try to decode date string to a datetime
+    try:
+        this_date = datetime.datetime.strptime( string, "%Y-%m-%d" ) #format type YYYY-mm-dd
+    except:
+        this_date = datetime.datetime.strptime( string, "%m-%d-%Y" ) #format type mm-dd-YYYY
+    # convert back to the proper format    
+    date_str = datetime.datetime.strftime(this_date, '%Y-%m-%d')
+    os.makedirs(os.path.join(path, date_str))
+"""
 
 #save the answer into a text file
 def quiz_answer(answer):

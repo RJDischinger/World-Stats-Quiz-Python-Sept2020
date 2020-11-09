@@ -1,7 +1,8 @@
 import random
-import re
+import re   #REGEX
 import json
 import datetime 
+
 
 from datetime import date, time, datetime
 date_format = "%m/%d/"
@@ -12,12 +13,7 @@ final = delta.days
 
 today = date.today()
 
-#def birthday_greeting():
-#future = datetime.date(birthday)
-#user_birthday = datetime(now.year, mm, dd)
-#diff = future - today
-#print(diff.days)
-
+#FEATURE Create and call at least 3 functions, ...
 def christmas_greeting():
     if final > 0:
         print(final, "days until Christmas!")
@@ -26,7 +22,16 @@ def christmas_greeting():
     elif final < 0:
         print ("I hope you had a great Christmas.  Have a Happy New Year.")
 
-#Questions for our test
+#def birthday_greeting():
+    #future = datetime.date(birthday)
+    #user_birthday = datetime(now.year, mm, dd)
+    #diff = future - today
+    #print(diff.days)
+ #call function for date options
+    #future = datetime.date(user_birthday)
+    #diff = future - today
+    #print(diff.days)
+    #calculate days till your birthday ???
 
 #save the answer into a text file
 def quiz_answer(answer):
@@ -46,13 +51,20 @@ def user_info():
     user_name = input("What is your name? (First + Last)")
     print("Hello ", user_name, ". \n")
     christmas_greeting()
-    mm = input("What is the month of your Birthday? (mm) ").lower()
-    dd = input("What is the day of your Birthday? (dd) ").lower()
+    #FEATURE  Use regex to verify month and date inputs
+    #use warnings;
+    birth_month = input("What is the month of your Birthday? (mm) ").lower()
+        #birth_month = "^(0?[1-9]|1[012])$"
+    birth_day = input("What is the day of your Birthday? (dd) ").lower()
+        #birth_day = "(0[1-9]|[12]\d|3[01])"
+    #birthday_greeting()
+    main_menu()
 
 #FEATURE: Implement a "master loop" console ...
 #Create Main Menu to chose to play or to exit
-def main_menu():
-    print("Welcome to the Main Menu. \n")
+
+def opening_menu():
+    print("Welcome Visiter \n")
     print("Today is ",today) 
     print(" ")
     user_info_request = input("Would you like to tell us about yourself? Y/N ").lower()
@@ -60,15 +72,15 @@ def main_menu():
         user_info()
     else:
         print("Enjoy your visit. \n")
-    #call function for date options
-    #birthday_greeting()
-    #future = datetime.date(user_birthday)
-    #diff = future - today
-    #print(diff.days)
-    #calculate days till your birthday ???
+        main_menu()
+
+def main_menu():
+    print("**************************************")
+    print("Welcome to the Main Menu")
+    print("------------------------")
     print("Please select an option below.")
     print("1. Answer World Statistics Questions")
-    #option to build a game feature
+    #option to play a game feature
     print("2. Play Pong Game")
     print("3. Choose Your own adventure Game ")
     print("Enter 0 to Exit the Program")
@@ -85,7 +97,8 @@ def main_menu():
         print("\n Thanks for visiting \n")
         quit()
 
-        
+#Questions for our test
+
 def world_stat_quiz():
     score = 0  
     count = 5 #this is the number of questions in the quiz.  
@@ -156,5 +169,5 @@ def world_stat_quiz():
             print("")
             main_menu()
 
-main_menu()
-
+opening_menu()
+#main_menu()

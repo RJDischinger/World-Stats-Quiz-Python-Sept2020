@@ -64,6 +64,7 @@ def user_info():
 #Create Main Menu to chose to play or to exit
 
 def opening_menu():
+    print("**************************************")
     print("Welcome Visiter \n")
     print("Today is ",today) 
     print(" ")

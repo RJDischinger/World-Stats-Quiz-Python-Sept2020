@@ -175,6 +175,8 @@ def help_screen():
     print("#    Welcome to the Help Screen     #")
     print('#                                   #')
     print('# Follow the on screen instructions #')
+    print('#                                   #')
+    print('#                                   #')
     print("#####################################")
     print()
     main_menu()

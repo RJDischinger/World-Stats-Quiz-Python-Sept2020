@@ -7,6 +7,7 @@ repository for codeLouisville Python Sept 2020 project
 3. Follow the on screen instructions from the "Main Menu"
 4. You can choose the "Help" screen by typing "h" from the "Main Menu"
 5. The tests.py must be called manually. (It is not set up to run from the "WorldStatsQuestions")
+
 The requirements attempted include:
   Implement a "master loop" console...
     This is presented as a "Main Menu".

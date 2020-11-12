@@ -3,7 +3,7 @@ import re   #REGEX
 import json
 import datetime 
 
-
+#FEATURE Calculate and display data based on an external factor...SEE ALSO def christmas_greeting
 from datetime import date, time, datetime
 date_format = "%m/%d/"
 now = datetime.now()
@@ -20,18 +20,9 @@ def christmas_greeting():
     elif final == 0:
         print ("Merry Christmas!")
     elif final < 0:
-        print ("I hope you had a great Christmas.  Have a Happy New Year.")
+        print ("I hope you had a great Christmas.  Have a Happy New Year. \n")
 
-#def birthday_greeting():
-    #future = datetime.date(birthday)
-    #user_birthday = datetime(now.year, mm, dd)
-    #diff = future - today
-    #print(diff.days)
- #call function for date options
-    #future = datetime.date(user_birthday)
-    #diff = future - today
-    #print(diff.days)
-    #calculate days till your birthday ???
+       
 
 #save the answer into a text file
 def quiz_answer(answer):
@@ -44,20 +35,22 @@ def show():
             print(line)
             
 if __name__ =='__main__':
-    quiz_answer(input("How are you today? "))
+    quiz_answer(input("How are you today? ")) #Need to add answer to the end of the list???
 
 #Collect user's infomation  
 def user_info():
     user_name = input("What is your name? (First + Last)")
     print("Hello ", user_name, ". \n")
     christmas_greeting()
-    #FEATURE  Use regex to verify month and date inputs
-    #use warnings;
-    birth_month = input("What is the month of your Birthday? (mm) ").lower()
-        #birth_month = "^(0?[1-9]|1[012])$"
-    birth_day = input("What is the day of your Birthday? (dd) ").lower()
-        #birth_day = "(0[1-9]|[12]\d|3[01])"
-    #birthday_greeting()
+    travel_distance = input("How many miles do you travel to work or school? (miles) ")
+    weight = input("What is your ideal weight? ")  #OK,...not so politically correct, but for educational purposes.
+    #FEATURE Build a conversion toolthat converts user input to another type ...
+    travel_distance = int(travel_distance)
+    km_travel_distance = round((travel_distance/0.62137119), 2)
+    weight = int(weight)
+    kg_weight = round((weight * 0.453592), 1)
+    print("You travel",travel_distance,"miles, which is", km_travel_distance, "kilometers.")
+    print("Your ideal weight is",weight, "pounds, which is equal to",kg_weight, "kilograms.")
     main_menu()
 
 #FEATURE: Implement a "master loop" console ...
@@ -170,4 +163,4 @@ def world_stat_quiz():
             main_menu()
 
 opening_menu()
-#main_menu()
+

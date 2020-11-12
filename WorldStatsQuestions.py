@@ -3,6 +3,10 @@ import re   #REGEX
 import json
 import datetime 
 
+import WorldStatsQuiz
+
+
+
 #FEATURE Calculate and display data based on an external factor...SEE ALSO def christmas_greeting
 from datetime import date, time, datetime
 date_format = "%m/%d/"
@@ -39,7 +43,7 @@ if __name__ =='__main__':
 
 #Collect user's infomation  
 def user_info():
-    user_name = input("What is your name? (First + Last)")
+    user_name = input("What is your name? (First + Last)").title()
     print("Hello ", user_name, ". \n")
     christmas_greeting()
     travel_distance = input("How many miles do you travel to work or school? (miles) ")

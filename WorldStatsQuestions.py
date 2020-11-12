@@ -23,7 +23,7 @@ def christmas_greeting():
         print ("I hope you had a great Christmas.  Have a Happy New Year. \n")
 
        
-
+#FEATURE: Implement a log that records ... and writes them to a text file
 #save the answer into a text file
 def quiz_answer(answer):
     with open("answers.txt", "a") as file:
@@ -76,8 +76,9 @@ def main_menu():
     #option to play a game feature
     print("2. Play Pong Game")
     print("3. Choose Your own adventure Game ")
+    print("h. Go to Help Screen ")
     print("Enter 0 to Exit the Program")
-    choice = input("\n Enter 1, 2, 3, or 0: ")
+    choice = input("\n Enter 1, 2, 3, h, or 0: ").lower()
     if choice == "1":
         world_stat_quiz()
     elif choice =="2":
@@ -85,7 +86,9 @@ def main_menu():
         main_menu() 
     elif choice =="3":
         print("*** Sorry, that feature is not complete yet. \n")
-        main_menu()           
+        main_menu()
+    elif choice =="h":
+        help_screen()                      
     elif choice == "0":
         print("\n Thanks for visiting \n")
         quit()
@@ -161,6 +164,17 @@ def world_stat_quiz():
         else:
             print("")
             main_menu()
+
+def help_screen():
+    print()
+    print("#####################################")
+    print("#    Welcome to the Help Screen     #")
+    print('#                                   #')
+    print('# Follow the on screen instructions #')
+    print("#####################################")
+    print()
+    main_menu()
+
 
 opening_menu()
 

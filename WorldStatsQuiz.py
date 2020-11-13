@@ -3,7 +3,7 @@ import json
 import re
 import random
 
-print("\n --------------------------------------")
+print("\n--------------------------------------")
 print("This is the WorldStatsQuiz sample page \n")
 
 #regex

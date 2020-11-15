@@ -9,13 +9,14 @@ from random import randint
 #WINDOW SETUP
 window = turtle.Screen()
 window.title("Turtle Race")
+
 turtle.bgcolor("forestgreen")
 turtle.color("white")
 turtle.speed(0)
-turtle.penup
+turtle.penup()
 turtle.setpos(-140, 200)
 turtle.write("Turtle Race", font=("Arial", 30, "bold"))
-turtle.penup
+turtle.penup()
 
 
 #Graphics for bottom of page
@@ -27,13 +28,13 @@ turtle.forward(800)
 turtle.right(90)
 turtle.forward(800)
 turtle.right(90)
-turtle.forward(300)
+turtle.forward(800)
 turtle.end_fill()
 
 #Finish Line
 stamp_size = 20
 square_size = 15
-finish_line =200
+finish_line = 200
 
 turtle.color("black")
 turtle.shape("square")
@@ -45,7 +46,7 @@ for i in range(10):
     turtle.stamp()
 
 for j in range(10):
-    turtle.setpos(finish_line + square_size, (150 - (j * square_size * 2)))
+    turtle.setpos(finish_line + square_size, ((150 - square_size) - (j * square_size * 2)))
     turtle.stamp()
 
 turtle.hideturtle()

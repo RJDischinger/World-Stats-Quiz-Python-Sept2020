@@ -1,10 +1,10 @@
 import random
-import re   #REGEX
+import re
 import json
 import datetime 
 
-import WorldStatsQuiz
-
+def sample_page():
+    import SamplePage
 
 
 #FEATURE Calculate and display data based on an external factor...SEE ALSO def christmas_greeting
@@ -17,7 +17,7 @@ final = delta.days
 
 today = date.today()
 
-#FEATURE Create and call at least 3 functions, ...
+#FEATURE Create and call at least 3 functions, ..."Return" is found on the SamplePage
 def christmas_greeting():
     if final > 0:
         print(final, "days until Christmas!")
@@ -46,9 +46,18 @@ def user_info():
     user_name = input("What is your name? (First + Last)").title()
     print("Hello ", user_name, ". \n")
     christmas_greeting()
+    user_phone = input("What is your phone number? (###-###-####)")
+    regex= "\w{3}-\w{3}-\w{4}"
+
+    if re.search(regex, user_phone):
+        print("Valid phone number: You entered:",user_phone," ")
+    else:
+        print("Invalid phone number")
+        user_info()
+    
     travel_distance = input("How many miles do you travel to work or school? (miles) ")
     weight = input("What is your ideal weight? ")  #OK,...not so politically correct, but for educational purposes.
-    #FEATURE Build a conversion toolthat converts user input to another type ...
+    #FEATURE Build a conversion tool that converts user input to another type ...
     travel_distance = int(travel_distance)
     km_travel_distance = round((travel_distance/0.62137119), 2)
     weight = int(weight)
@@ -80,6 +89,7 @@ def main_menu():
     #option to play a game feature
     print("2. Play Pong Game")
     print("3. Choose Your own adventure Game ")
+    print("4. Test some Sample Python code ")
     print("h. Go to Help Screen ")
     print("Enter 0 to Exit the Program")
     choice = input("\n Enter 1, 2, 3, h, or 0: ").lower()
@@ -91,6 +101,8 @@ def main_menu():
     elif choice =="3":
         print("*** Sorry, that feature is not complete yet. \n")
         main_menu()
+    elif choice =="4":
+        sample_page()
     elif choice =="h":
         help_screen()                      
     elif choice == "0":
@@ -103,13 +115,8 @@ def world_stat_quiz():
     score = 0  
     count = 5 #this is the number of questions in the quiz.  
     print("\nAccording to the United Nations: ... ") 
-    '''
-    #FEATURE Create a (dictionary or) list, populate it with several values, retrieve at least one value, and use it in the program.
-    answer_list = ['answer1', 'answer2', 'answer3', 'answer4', 'answer5']
-    mix = random.choice(answer_list)
-    print(mix)
-    '''
-    #random    Ask question
+    
+    # Ask question
     answer1 = input("\n What is the percent of the world's population that has access to electricity? \n a. 20% \n b. 50% \n c. 80% \n \n Answer: ").lower() #c
     '''#for loop to check for valid answer
     if answer1 != "a" or "b" or "c":
@@ -136,7 +143,7 @@ def world_stat_quiz():
     if answer5 == "c":
         score += 1
 
-    print("Your final score for the quiz is", score, ". \n")
+    print("Your final score for the quiz is", score, "out of", count,"questions. \n")
     #calculate the percentage of correct answers =correctAnswers/totalQuestions
     score_percent = score/count*100
 
